@@ -9,7 +9,6 @@ export default (req: Request<{ num?: string }>, res: Response): void => {
   if (typeof req.params.num === "string") {
     numStr = req.params.num;
   }  
-  
   const n = Number.parseInt(numStr, 10);
 
   if (Number.isNaN(n) || !Number.isInteger(n) || n < 0) {
