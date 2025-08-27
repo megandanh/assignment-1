@@ -8,10 +8,12 @@ export default (req: Request<{ num?: string }>, res: Response): void => {
 
   if (typeof req.params.num === "string") {
     numStr = req.params.num;
-  }  
+  }
+
   const n = Number.parseInt(numStr, 10);
 
-  if (Number.isNaN(n) || !Number.isInteger(n) || n < 0) {
+  // allow negative integers so fibonacci can decide "undefined" for negatives
+  if (Number.isNaN(n) || !Number.isInteger(n)) {
     res.status(400).send("Invalid input");
     return;
   }
