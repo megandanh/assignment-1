@@ -24,6 +24,5 @@ export default (req: Request<{ num?: string }>, res: Response): void => {
   if (typeof fibN !== "number" || fibN < 0) {
     result = `fibonacci(${n}) is undefined`;
   }
-
   res.send(result);
 };
